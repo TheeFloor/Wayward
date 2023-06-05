@@ -8,7 +8,6 @@ public class Companion : MonoBehaviour
     private Rigidbody companionRb;
     private GameObject player;
     private GameObject companion;
-    public GameObject plasticIndicator;
     
    
     // Start is called before the first frame update
@@ -16,7 +15,7 @@ public class Companion : MonoBehaviour
     {
         companionRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-        companion = GameObject.Find("Companion");
+    
     }
 
     // Update is called once per frame
@@ -27,6 +26,6 @@ public class Companion : MonoBehaviour
 
        companionRb.AddForce(lookDirection * speed);
 
-       plasticIndicator.transform.position = transform.position + companion.transform.position;
+       
     }
 }
