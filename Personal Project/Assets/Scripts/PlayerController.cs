@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float xRange = 65f;
     private float zRange = 65f;
+    public ParticleSystem watersplatterParticle;
 
     // Start is called before the first frame update
     void Start()
