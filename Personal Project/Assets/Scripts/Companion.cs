@@ -8,6 +8,7 @@ public class Companion : MonoBehaviour
     private Rigidbody companionRb;
     private GameObject player;
     private GameObject companion;
+    public GameObject plasticIndicator;
     
    
     // Start is called before the first frame update
@@ -26,6 +27,6 @@ public class Companion : MonoBehaviour
 
        companionRb.AddForce(lookDirection * speed);
 
-       
+       plasticIndicator.transform.position = transform.position + new Vector3(0, 2, 0);
     }
 }
