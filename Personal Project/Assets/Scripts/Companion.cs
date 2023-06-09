@@ -9,24 +9,35 @@ public class Companion : MonoBehaviour
     private GameObject player;
     private GameObject companion;
     public GameObject plasticIndicator;
+    public bool hasPlasticIndicator;
     
-   
     // Start is called before the first frame update
     void Start()
     {
         companionRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-    
+        plasticIndicator.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // companion follows the player
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized; 
-
-       companionRb.AddForce(lookDirection * speed);
+        
 
        plasticIndicator.transform.position = transform.position + new Vector3(0, 2, 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // companion follows the player
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized; 
+
+            companionRb.AddForce(lookDirection * speed);
+
+            hasPlasticIndicator = false;
+            plasticIndicator.gameObject.SetActive(false);
+        }
     }
 }

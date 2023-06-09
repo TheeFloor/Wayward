@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plastic
   - Companion
+  - Pollution
   layers:
   - Default
   - TransparentFX

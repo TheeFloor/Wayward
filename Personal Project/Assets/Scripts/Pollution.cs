@@ -8,6 +8,8 @@ public class Pollution : MonoBehaviour
     private Rigidbody pollutionRb;
     private GameObject player;
     public int plasticCount;
+    private GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,4 +25,10 @@ public class Pollution : MonoBehaviour
 
         pollutionRb.AddForce(lookDirection * speed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!gameObject.CompareTag("Pollution")) { gameManager.GameOver(); }
+    }
 }
+
